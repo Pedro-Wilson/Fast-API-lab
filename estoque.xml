@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<estoque>
+	<aparelho>
+		<id>1</id>
+		<nome>Thinkpad L440</nome>
+		<marca>Lenovo</marca>
+		<preco>1.3</preco>
+		<categoria>Tanque</categoria>
+		<deposito>Estoque A</deposito>
+	</aparelho>
+	<aparelho>
+		<id>2</id>
+		<nome>Thinkpad L440</nome>
+		<marca>Lenovo</marca>
+		<preco>1.3</preco>
+		<categoria>Tanque</categoria>
+		<deposito>Estoque A</deposito>
+	</aparelho>
+</estoque>
