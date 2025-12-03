@@ -87,10 +87,10 @@ class Aparelho(BaseModel):
 ### 📝 Persistência
 
 As operações que modificam o estoque (POST, PUT, DELETE) atualizam automaticamente o arquivo:
-
+```
 estoque.xml
-
+```
 Esse arquivo sempre representa o estado atual dos aparelhos cadastrados.
 
 ### 👨‍💻 Autor
-Pedro Wilson C. Parreira
+>> Pedro Wilson C. Parreira
