@@ -61,17 +61,17 @@ Se o Uvicorn não estiver no PATH:
 
 ### 🗂️ Endpoints da API  
 
-Documentação interativa:  
-http://127.0.0.1:8000/docs
+- **Documentação interativa:**  
+  http://127.0.0.1:8000/docs
 
-Recurso: /aparelhos  
-Método – Rota – Descrição  
-POST – /aparelhos – Adiciona um novo aparelho  
-GET – /aparelhos – Lista todos os aparelhos  
-GET – /aparelhos/{id} – Retorna um aparelho pelo ID  
-PUT – /aparelhos/{id} – Atualiza completamente um aparelho  
-DELETE – /aparelhos/{id} – Remove um aparelho  
-PUT – /aparelhos/{id}/transferir/{novo_deposito} – Transfere o aparelho entre depósitos
+- **Recurso:** `/aparelhos`
+  - **POST** — `/aparelhos` — Adiciona um novo aparelho  
+  - **GET** — `/aparelhos` — Lista todos os aparelhos  
+  - **GET** — `/aparelhos/{id}` — Retorna um aparelho pelo ID  
+  - **PUT** — `/aparelhos/{id}` — Atualiza completamente um aparelho  
+  - **DELETE** — `/aparelhos/{id}` — Remove um aparelho  
+  - **PUT** — `/aparelhos/{id}/transferir/{novo_deposito}` — Transfere o aparelho entre depósitos
+
 
 ### 📄 Modelo de Dados (Pydantic)
 ```python
@@ -93,4 +93,4 @@ estoque.xml
 Esse arquivo sempre representa o estado atual dos aparelhos cadastrados.
 
 ### 👨‍💻 Autor
->> Pedro Wilson C. Parreira
+> Pedro Wilson C. Parreira
