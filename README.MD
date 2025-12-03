@@ -1,75 +1,59 @@
-💻 Laboratório: API REST de Gerenciamento de Estoque com FastAPI e XML
+Laboratório — API REST de Gerenciamento de Estoque (FastAPI + XML)
 
-Este projeto implementa uma API RESTful simples para gerenciamento de estoque, utilizando o framework FastAPI em Python. A principal característica é a persistência dos dados, que é realizada diretamente em um arquivo XML (estoque.xml), simulando um sistema de armazenamento.
+Uma API RESTful para gerenciamento de estoque desenvolvida com FastAPI.
+O projeto utiliza XML como camada de persistência, simulando um armazenamento leve e sem dependência de banco de dados.
 
+Tecnologias Utilizadas
 
-⚙️ Tecnologias Utilizadas
+Python 3.x
 
-    Python 3.x
+FastAPI
 
-    FastAPI: Framework de alta performance para construção de APIs.
+Uvicorn
 
-    Uvicorn: Servidor ASGI para rodar a aplicação FastAPI.
+Pydantic
 
-    Pydantic: Biblioteca para tipagem de dados e validação.
+XML (persistência)
 
-    XML: Formato de arquivo para persistência de dados.
+configparser e xml.etree.ElementTree (manipulação de arquivos)
 
-    configparser / xml.etree.ElementTree: Bibliotecas padrão do Python para manipulação de arquivos.
-
-
-🚀 Instalação e Execução
-
-Pré-requisitos
-
-Certifique-se de ter o Python 3 e o pip instalados.
-1. Clonar o Repositório
-Bash
-
-git clone [Link do seu repositório]
+Instalação e Execução
+1. Clonar o repositório
+git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
 cd Laboratório-FastAPI
 
-2. Instalar Dependências
+2. Instalar dependências
+pip install -r requirements.txt
 
-Instale os pacotes necessários listados no requirements.txt.
 
-Nota sobre Linux (externally-managed-environment): Caso encontre erros de permissão, utilize a flag --break-system-packages (não recomendado para ambientes de produção):
-Bash
-
+Caso ocorra erro “externally-managed-environment” no Linux:
 pip install -r requirements.txt --break-system-packages
+(não recomendado para ambientes de produção).
 
-3. Configurar o Arquivo de Estoque
-
-Execute o script de configuração para criar o arquivo config.ini:
-Bash
-
+3. Gerar arquivo de configuração
 python3 config.py
 
-4. Rodar o Servidor
+4. Executar o servidor
+uvicorn app:app --reload
 
-Inicie o servidor Uvicorn. Use o caminho completo do executável (~/.local/bin/uvicorn) se ele não estiver no seu PATH:
-Bash
 
+Se Uvicorn não estiver no PATH:
 ~/.local/bin/uvicorn app:app --reload
 
-🗺️ Endpoints da API
+Endpoints da API
 
-Com o servidor rodando, a documentação interativa Swagger UI fica disponível em: http://127.0.0.1:8000/docs
+Documentação interativa (Swagger UI):
+http://127.0.0.1:8000/docs
 
-A API suporta as seguintes operações para o recurso /aparelhos:
+Recurso: /aparelhos
 Método	Rota	Descrição
-POST	/aparelhos	Adiciona um novo aparelho ao estoque.
+POST	/aparelhos	Adiciona um aparelho.
 GET	/aparelhos	Lista todos os aparelhos.
-GET	/aparelhos/{id}	Busca um aparelho específico pelo ID.
-PUT	/aparelhos/{id}	Atualiza completamente um aparelho existente.
-DELETE	/aparelhos/{id}	Remove um aparelho pelo ID.
-PUT	/aparelhos/{id}/transferir/{novo_deposito}	Função de Transferência: Altera o depósito de um aparelho específico.
-
-💡 Modelo de Dados (Pydantic)
-
-O schema de dados (Aparelho) define a estrutura do JSON esperada para as requisições:
-Python
-
+GET	/aparelhos/{id}	Retorna um aparelho específico.
+PUT	/aparelhos/{id}	Atualiza um aparelho completo.
+DELETE	/aparelhos/{id}	Remove um aparelho.
+PUT	/aparelhos/{id}/transferir/{novo_deposito}	Transfere o aparelho para outro depósito.
+Modelo de Dados (Pydantic)
 class Aparelho(BaseModel):
     id: int
     nome: str
@@ -78,8 +62,15 @@ class Aparelho(BaseModel):
     categoria: str
     deposito: str
 
-📝 Teste de Persistência
+Persistência
 
-A persistência é validada ao inspecionar o arquivo estoque.xml após a execução de operações POST, PUT ou DELETE. O conteúdo do arquivo deve refletir o estado atual do estoque.
+Todas as alterações realizadas por meio dos endpoints (POST, PUT, DELETE) são registradas no arquivo:
 
-Desenvolvido por: Pedro Wilson C. Parreira
+estoque.xml
+
+
+O conteúdo do arquivo reflete sempre o estado atual do estoque.
+
+Autor
+
+Pedro Wilson C. Parreira
